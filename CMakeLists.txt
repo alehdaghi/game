@@ -3,4 +3,4 @@ project(game)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(game main.cpp TEST.cpp GameObject.cpp GameObject.h Player.cpp Player.h)
+add_executable(game main.cpp TEST.cpp src/objects/GameObject.cpp include/objects/GameObject.h src/objects/Player.cpp include/objects/Player.h)
