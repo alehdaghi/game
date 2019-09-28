@@ -7,6 +7,7 @@
 #include "include/objects/Orc.h"
 #include "include/objects/Dragon.h"
 #include "include/objects/ObjectFactory.h"
+#include "include/objects/Board.h"
 
 void test1_test_objects() {
     //Game::Objects::GameObject o; // must rise an compilation error due as abstraction
@@ -21,8 +22,29 @@ void test1_test_objects() {
     auto o2 = Game::Object::OrcFactory::getInstance().create("Orc", 7, 1);
     auto d2 = Game::Object::DragonFactory::getInstance().create("Dragon", 20, 3);
 
+    p3->getHealth();
+    o2->getHealth();
+    d2->getHealth();
+
+    p3->getPower();
+    o2->getPower();
+    d2->getPower();
+
+    p3->setHealth(10);
+    o2->setHealth(3);
+    d2->setHealth(-7);
+    assert(d2->getHealth() >= 0);
+
+    Game::Object::Board& b = Game::Object::Board::getInstance();
 
     delete p3;
     delete o2;
     delete d2;
+}
+
+void test2_test_game() {
+    Game::Object::Board& b = Game::Object::Board::getInstance();
+    b.initialize("Mahdi"); // initializes the objects of game
+    b.start(); // starts the game async
+    b.join(); // joins until the game ends;
 }

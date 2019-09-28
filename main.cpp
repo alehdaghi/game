@@ -1,6 +1,10 @@
 #include <iostream>
+#include <objects/Board.h>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Game::Object::Board& b = Game::Object::Board::getInstance();
+    b.initialize("Mahdi");
+    b.start();
+    b.join();
     return 0;
 }

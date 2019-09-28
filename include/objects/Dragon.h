@@ -12,6 +12,7 @@ namespace Game {
 
         class Dragon : public GameObject {
         private:
+            constexpr static int interval = 2500;
         public:
             Dragon();
             Dragon(const std::string& name, int health, int power);

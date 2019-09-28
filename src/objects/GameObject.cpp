@@ -12,10 +12,39 @@ Game::Object::GameObject::GameObject(const std::string& name, int health, int po
 
 }
 
-Game::Object::GameObject::GameObject(GameObject &&movedObject)
-    :m_name(std::move(movedObject.m_name)),
-    m_health(std::move(movedObject.m_health)),
-    m_power(std::move(movedObject.m_power))
-{
-
+void Game::Object::GameObject::join() {
+    if (m_thread && m_thread->joinable())
+        m_thread->join();
 }
+
+void Game::Object::GameObject::attack() {
+    sig();
+}
+
+void Game::Object::GameObject::onAttack(std::function<void()> slot) {
+    sig.connect(slot);
+}
+
+int Game::Object::GameObject::getHealth() {
+    return m_health;
+}
+
+void Game::Object::GameObject::setHealth(int health) {
+    if (health < 0)
+        health = 0;
+    m_health = health;
+}
+
+int Game::Object::GameObject::getPower() {
+    return m_power;
+}
+
+bool Game::Object::GameObject::isLive() {
+    return m_health > 0;
+}
+
+void Game::Object::GameObject::finish() {
+    isGameEnded = true;
+}
+
+

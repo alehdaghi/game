@@ -30,25 +30,25 @@ namespace Game {
             PlayerFactory();
 
         public:
-            GameObject* create(const std::string& name, int health, int power);
+            GameObject* create(const std::string& name, int health, int power) override ;
         };
 
-        class OrcFactory : public ObjectFactory, public Utility::ISingleton<PlayerFactory> {
+        class OrcFactory : public ObjectFactory, public Utility::ISingleton<OrcFactory> {
         private:
             friend class ISingleton;
             OrcFactory();
 
         public:
-            GameObject* create(const std::string& name, int health, int power);
+            GameObject* create(const std::string& name, int health, int power) override ;
         };
 
-        class DragonFactory : public ObjectFactory, public Utility::ISingleton<PlayerFactory> {
+        class DragonFactory : public ObjectFactory, public Utility::ISingleton<DragonFactory> {
         private:
             friend class ISingleton;
             DragonFactory();
 
         public:
-            GameObject* create(const std::string& name, int health, int power);
+            GameObject* create(const std::string& name, int health, int power) override ;
         };
     }
 }

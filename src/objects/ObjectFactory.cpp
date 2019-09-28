@@ -24,6 +24,14 @@ Game::Object::GameObject *Game::Object::OrcFactory::create(const std::string& na
     return new Orc(name, health, power);
 }
 
+Game::Object::OrcFactory::OrcFactory() {
+
+}
+
 Game::Object::GameObject *Game::Object::DragonFactory::create(const std::string& name, int health, int power) {
     return new Dragon(name, health, power);
+}
+
+Game::Object::DragonFactory::DragonFactory() {
+
 }
