@@ -23,7 +23,7 @@
              // constructor
              GameObject();
 
-             GameObject(std::string name, int health, int power);
+             GameObject(const std::string& name, int health, int power);
 
              GameObject(GameObject &&movedObject);
 

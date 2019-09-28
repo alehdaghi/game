@@ -14,7 +14,7 @@ namespace Game {
         public:
             Player();
 
-            Player(std::string name, int health, int power);
+            Player(const std::string& name, int health, int power);
 
             void run() override;
         };

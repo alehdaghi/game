@@ -8,7 +8,7 @@ Game::Object::GameObject::GameObject() {
 
 }
 
-Game::Object::GameObject::GameObject(std::string name, int health, int power) : m_name(name), m_health(health), m_power(power){
+Game::Object::GameObject::GameObject(const std::string& name, int health, int power) : m_name(name), m_health(health), m_power(power){
 
 }
 
